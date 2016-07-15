@@ -1,2 +1,2 @@
-# Clipboard
-A simple clipboard library for D
+# A Clipboard Library for D
+This is a simple clipboard library for [D](https://dlang.org/). It based on [these Go library](https://github.com/atotto/clipboard) and a [discussion at the D forum](http://forum.dlang.org/post/mailman.2831.1315863251.14074.digitalmars-d-learn@puremagic.com).
