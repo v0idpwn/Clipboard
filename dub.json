@@ -1,0 +1,15 @@
+{
+	"name": "clipboard",
+	"description": "A Clipboard Library",
+	"homepage": "https://github.com/SommerEngineering/Clipboard",
+	"authors": ["Thorsten Sommer"],
+	"license": "2-clause BSD",
+	"dflags": [
+		"-version=test"
+	],
+	"dependencies": {
+	},
+	"importPaths": ["source/"],
+	"sourcePaths": ["source/"],
+	"targetPath": "bin"
+}
