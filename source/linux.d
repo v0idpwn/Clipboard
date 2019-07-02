@@ -11,7 +11,7 @@ version(linux) {
 	public wstring readClipboard() {
 		auto clip = pipeProcess(["xclip", "-out", "-selection", "clipboard"], Redirect.stdout);
 		scope(exit) {
-			wait(dot.pid);
+			wait(clip.pid);
 		}
 
 		return clip.stdout.byChunk(4096).joiner().array;
@@ -23,7 +23,7 @@ version(linux) {
 	public void writeClipboard(wstring text) {
 		auto clip = pipeProcess(["xclip", "-in", "-selection", "clipboard"], Redirect.stdin);
 		scope(exit) {
-			wait(dot.pid);
+			wait(clip.pid);
 		}
 
 		clip.stdin.write(text);
