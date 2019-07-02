@@ -8,7 +8,7 @@ import std.stdio;
 /**
 	Read a string from the clipboard.
 */
-public wstring readClipboard() {
+public string readClipboard() {
 	version(Windows) {
 		import clipboard_windows;
 		return clipboard_windows.readClipboard();
@@ -26,7 +26,7 @@ public wstring readClipboard() {
 /**
 	Write a string to the clipboard.
 */
-public void writeClipboard(wstring text) {
+public void writeClipboard(string text) {
 	version(Windows) {
 		import clipboard_windows;
 		clipboard_windows.writeClipboard(text);

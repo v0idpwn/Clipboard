@@ -8,19 +8,19 @@ version(linux) {
 	/**
 		Read a string from the clipboard.
 	*/
-	public wstring readClipboard() {
+	public string readClipboard() {
 		auto clip = pipeProcess(["xclip", "-out", "-selection", "clipboard"], Redirect.stdout);
 		scope(exit) {
 			wait(clip.pid);
 		}
 
-		return clip.stdout.byChunk(4096).joiner().array;
+		return cast(string)clip.stdout.byChunk(4096).joiner().array;
 	}
 
 	/**
 		Write a string to the clipboard.
 	*/
-	public void writeClipboard(wstring text) {
+	public void writeClipboard(string text) {
 		auto clip = pipeProcess(["xclip", "-in", "-selection", "clipboard"], Redirect.stdin);
 		scope(exit) {
 			wait(clip.pid);
@@ -35,7 +35,7 @@ version(linux) {
 		Clears the clipboard.
 	*/
 	public void clearClipboard() {
-		writeClipboard(""w);
+		writeClipboard("");
 	}
 
 	/**

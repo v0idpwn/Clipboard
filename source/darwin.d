@@ -8,19 +8,19 @@ version(OSX) {
 	/**
 		Read a string from the clipboard.
 	*/
-	public wstring readClipboard() {
+	public string readClipboard() {
 		auto clip = pipeProcess(["pbpaste"], Redirect.stdout);
 		scope(exit) {
 			wait(dot.pid);
 		}
 
-		return clip.stdout.byChunk(4096).joiner().array;
+		return cast(string)clip.stdout.byChunk(4096).joiner().array;
 	}
 
 	/**
 		Write a string to the clipboard.
 	*/
-	public void writeClipboard(wstring text) {
+	public void writeClipboard(string text) {
 		auto clip = pipeProcess(["pbcopy"], Redirect.stdin);
 		scope(exit) {
 			wait(dot.pid);
